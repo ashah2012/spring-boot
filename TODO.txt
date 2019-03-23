@@ -1,0 +1,40 @@
+Learning SpringBoot
+Few Start Projects -
+spring-boot-starter-web-services : For building applications exposing SOAP Web Services
+spring-boot-starter-web - Build Web applications & RESTful applications
+spring-boot-starter-test - Write great Unit and Integration Tests
+spring-boot-starter-jdbc - Traditional JDBC Applications
+spring-boot-starter-hateoas - Make your services more RESTful by adding HATEOAS features
+spring-boot-starter-security - Authentication and Authorization using Spring Security
+spring-boot-starter-data-jpa - Spring Data JPA with Hibernate
+spring-boot-starter-cache - Enabling Spring Framework’s caching support
+spring-boot-starter-data-rest - Expose Simple REST Services using Spring Data REST
+
+
+
+Spring Data JPA - Relational Databases
+Spring Data Mongodb
+Spring Data Redis - Repositories for Redis.
+
+
+PagingAndSortingRepository
+Auditing with Spring Data
+class Student {
+
+  @CreatedBy
+  private User createdUser;
+
+  @CreatedDate
+  private DateTime createdDate;
+
+  // … further properties omitted
+}
+
+
+Spring Data REST supports
+
+Spring Data JPA
+Spring Data MongoDB
+Spring Data Neo4j
+Spring Data GemFire
+Spring Data Cassandra
