@@ -23,24 +23,23 @@ public class EmployeePayrollController {
 	@Autowired
 	EmployeeService employeeService;
 	
+	@Autowired
+	EmployeeRollService rollService;
+	
 	@PostMapping("/employee/{empId}/role/{roleName}")
-	public void insertEmployeePayroll(@PathVariable Long empId, @PathVariable String roleName) {
+	public EmployeePayroll insertEmployeePayroll(@PathVariable Long empId, @PathVariable String roleName) {
 		
-		ResponseEntity<EmployeePayroll> forEntityEmployee = new RestTemplate().getForEntity("http://localhost:8080/employee/{empId}", EmployeePayroll.class, empId);
-		EmployeePayroll employeePayroll = employeeService.getEmployeeDetails(empId);
-		/*
-		 * ResponseEntity<EmployeePayroll> forEntityRole = new
-		 * RestTemplate().getForEntity("http://localhost:8101/role/{roleName}",
-		 * EmployeePayroll.class, roleName);
-		 * 
-		 * employeePayroll.setRoleId(forEntityRole.getBody().getRoleId());
-		 * employeePayroll.setRoleName(forEntityRole.getBody().getRoleName());
-		 * employeePayroll.setDescription(forEntityRole.getBody().getDescription());
-		 */
+		EmployeePayroll employee = employeeService.getEmployeeDetails(empId);
 		
-		System.out.println("Feign check ..... " + employeePayroll.getFirstName());
-		employeePayrollRepo.save(employeePayroll);
-		System.out.println("Method called ...........");
+		EmployeePayroll role = rollService.getEmployeeRollByRollName(roleName);
+		
+		employee.setRoleId(role.getRoleId());
+		employee.setRoleName(role.getRoleName());
+		employee.setDescription(role.getDescription());
+		
+		employeePayrollRepo.save(employee);
+		
+		return employee;
 	}
 	
 }

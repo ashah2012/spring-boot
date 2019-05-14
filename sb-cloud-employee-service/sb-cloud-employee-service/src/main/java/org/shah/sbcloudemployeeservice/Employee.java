@@ -48,7 +48,17 @@ public class Employee implements Serializable{
 	@Column(name="date_of_joining")
 	private Date dateOfJoining;
 	
+	@Column(name="port")
+	private Integer port;
 	
+	public Integer getPort() {
+		return port;
+	}
+
+	public void setPort(Integer port) {
+		this.port = port;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}

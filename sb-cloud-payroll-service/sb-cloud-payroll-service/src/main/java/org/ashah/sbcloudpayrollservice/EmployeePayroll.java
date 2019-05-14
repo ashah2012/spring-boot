@@ -63,6 +63,9 @@ public class EmployeePayroll implements Serializable{
 	@Column(name="role_description")
 	private String description;
 
+	@Column(name="port")
+	private Integer port;
+	
 	public Long getPayrollId() {
 		return payrollId;
 	}
@@ -149,6 +152,18 @@ public class EmployeePayroll implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+
+	public Integer getPort() {
+		return port;
+	}
+
+
+
+	public void setPort(Integer port) {
+		this.port = port;
 	}
 
 	

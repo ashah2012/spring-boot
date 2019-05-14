@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author avish
  *
  */
+//@FeignClient(name="role-service", url="http://localhost:8101")
 @Service
-//@FeignClient(name="employee-service", url = "localhost:8080")
-@FeignClient(name="employee-service")
-@RibbonClient(name="employee-service")
-public interface EmployeeService {
+@FeignClient(name="role-service")
+@RibbonClient(name="role-service")
+public interface EmployeeRollService {
 
-	@GetMapping("/employee/{empId}")
-	public EmployeePayroll getEmployeeDetails(@PathVariable Long empId) ;
+	@GetMapping("/role/{roleName}")
+	public EmployeePayroll getEmployeeRollByRollName(@PathVariable("roleName") String roleName);
 	
 }
